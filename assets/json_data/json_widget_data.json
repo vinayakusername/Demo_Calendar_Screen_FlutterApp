@@ -1,0 +1,123 @@
+{  
+    "totalNoOfWidgets":7,
+    "widgets":
+        [
+         {
+           "id":1,
+           "widgetType":"TextField",
+           "question":"What is your name when did you take vaccination which vaccination you had taken"
+            
+         },
+         {
+           "id":2,
+           "widgetType":"RadioButton",
+           "question":"Best Framework for Mobile App Developement",
+           "no_Of_Options":3,
+           "options":
+             [
+               {
+                 "text":"React Native",
+                 "value":"React Native"
+               },
+               {
+                 "text":"Phone Gap",
+                 "value":"Phone Gap"
+               },
+               {
+                "text":"Flutter Framework",
+                 "value":"Flutter Framework"
+               }
+             ]
+            
+         },
+         {
+           "id":3,
+           "widgetType":"TextField",
+           "question":"What is your favourite colour"
+         },
+         {
+           "id":4,
+           "widgetType":"RadioButton",
+           "question":"Have you completed graduation",
+           "no_Of_Options":2,
+           "options":
+             [
+               {
+                "text":"Yes",
+                "value":"Yes"
+                },
+               {
+                 "text":"No",
+                 "value":"No"
+               }
+               
+             ]
+            
+         },
+         {
+           "id":5,
+           "widgetType":"CheckBox",
+           "question":"Choose your favourite subject",
+           "no_Of_Options":4,
+           "options":
+             [
+               {
+                 "text":"Maths",
+                 "value":"Maths"
+               },
+               {
+                "text":"Physics",
+                 "value":"Physics"
+               },
+               {
+                "text":"Chemistry",
+                 "value":"Chemistry"
+               },
+               {
+                 "text":"Computer Science", 
+                 "value":"Computer Science"
+               }
+             ]
+            
+         },
+
+         {
+          "id":6,
+          "widgetType":"CheckBox",
+          "question":"Choose your favourite Organisation",
+          "no_Of_Options":4,
+          "options":
+            [
+              {
+                "text":"Google",
+                "value":"Google"
+              },
+              {
+                "text":"IBM",
+                "value":"IBM"
+              },
+              {
+                "text":"Apple",
+                "value":"Apple"
+              },
+              {
+                "text":"Microsoft",
+                "value":"Microsoft"
+              }
+            ]
+           
+        },
+
+
+         {
+           "id":7,
+           "widgetType":"UploadFile"
+         },
+ 
+         {
+           "id":8,
+           "widgetType":"DatePicker"
+         }
+ 
+        ]
+ }
