@@ -1,0 +1,91 @@
+{  
+    "totalNoOfWidgets":7,
+    "widgets":
+        [
+         {
+           "id":1,
+           "unique_key":"textField1_Answer",
+           "widgetType":"TextField",
+           "question":"What is your name when did you take vaccination which vaccination you had taken"
+            
+         },
+         {
+           "id":2,
+           "unique_key":"radioButton1_Answer",
+           "widgetType":"RadioButton",
+           "question":"Best Framework for Mobile App Developement",
+           "no_Of_Options":3,
+           "options":
+             [
+                 "React Native",
+                 "Phone Gap",
+                 "Flutter Framework"
+             ]
+            
+         },
+         {
+           "id":3,
+           "unique_key":"textField2_Answer",
+           "widgetType":"TextField",
+           "question":"What is your favourite colour"
+         },
+         {
+           "id":4,
+           "unique_key":"radioButton2_Answer",
+           "widgetType":"RadioButton",
+           "question":"Have you completed graduation",
+           "no_Of_Options":2,
+           "options":
+             [
+               "Yes",
+               "No"             
+            ]
+            
+         },
+         {
+           "id":5,
+           "unique_key":"checkBox1_Answer",
+           "widgetType":"CheckBox",
+           "question":"Choose your favourite subject",
+           "no_Of_Options":4,
+           "options":
+             [
+               "Maths",
+               "Physics",
+               "Chemistry",
+               "Computer Science"
+             ]
+            
+         },
+
+         {
+          "id":6,
+          "unique_key":"checkBox2_Answer",
+          "widgetType":"CheckBox",
+          "question":"Choose your favourite Organisation",
+          "no_Of_Options":4,
+          "options":
+            [
+              "Google",
+              "IBM",
+              "Apple",
+              "Microsoft"
+            ]
+           
+        },
+
+
+         {
+           "id":7,
+           "unique_key":"uploadField1_Answer",
+           "widgetType":"UploadFile"
+         },
+ 
+         {
+           "id":8,
+           "unique_key":"datePicker1_Answer",
+           "widgetType":"DatePicker"
+         }
+ 
+        ]
+ }
