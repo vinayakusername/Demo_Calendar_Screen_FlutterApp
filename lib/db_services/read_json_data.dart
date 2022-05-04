@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:demo_flutter_calender_application_1/screens/dynamic_form_project/model/widget_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,5 +12,5 @@ Future<List> readDynamicFormJsonData(BuildContext context) async
     List customWidgetList = data['widgets'];
     
     return customWidgetList;
-    
+
   }

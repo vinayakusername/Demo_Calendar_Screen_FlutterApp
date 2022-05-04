@@ -1,13 +1,13 @@
 class Options
 {
-  String? value;
-  Options({this.value});
+  String? option_value;
+  Options({this.option_value});
 
   factory Options.fromJson(Map<String,dynamic>jsonData)
   {
     return Options
     (
-      value: jsonData['value']
+      option_value: jsonData['value']
     );
     
   }

@@ -17,9 +17,15 @@
            "no_Of_Options":3,
            "options":
              [
-                 "React Native",
-                 "Phone Gap",
-                 "Flutter Framework"
+                 {
+                   "option_value":"React Native"
+                 },
+                 {
+                   "option_value":"Phone Gap"
+                 },
+                 {
+                   "option_value":"Flutter Framework"
+                 }
              ]
             
          },
@@ -37,8 +43,12 @@
            "no_Of_Options":2,
            "options":
              [
-               "Yes",
-               "No"             
+               {
+                 "option_value":"Yes"
+               },
+               {
+                 "option_value":"No"
+               }             
             ]
             
          },
@@ -50,10 +60,18 @@
            "no_Of_Options":4,
            "options":
              [
-               "Maths",
-               "Physics",
-               "Chemistry",
-               "Computer Science"
+               {
+                 "option_value":"Maths"
+               },
+               {
+                 "option_value":"Physics"
+               },
+               {
+                 "option_value":"Chemistry"
+               },
+               {
+                 "option_value":"Computer Science"
+               }
              ]
             
          },
@@ -66,10 +84,18 @@
           "no_Of_Options":4,
           "options":
             [
-              "Google",
-              "IBM",
-              "Apple",
-              "Microsoft"
+              {
+                "option_value":"Google"
+              },
+              {
+                "option_value":"IBM"
+              },
+              {
+                "option_value":"Apple"
+              },
+              {
+                "option_value":"Microsoft"
+              }
             ]
            
         },

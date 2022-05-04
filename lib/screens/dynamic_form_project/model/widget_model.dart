@@ -3,6 +3,7 @@ import 'package:demo_flutter_calender_application_1/screens/dynamic_form_project
 class CustomWidgets
 {
   int? id;
+  String? uniqueKey;
   String? widgetType;
   String? question;
   int? no_Of_Options;
@@ -12,6 +13,7 @@ class CustomWidgets
   CustomWidgets
   ({
      this.id,
+     this.uniqueKey,
      this.widgetType,
      this.question,
      this.no_Of_Options,
@@ -24,6 +26,7 @@ class CustomWidgets
   return CustomWidgets
   (
       id: parsedJson['id'],
+      uniqueKey: parsedJson['uniqueKey'],
       widgetType: parsedJson['widgetType'],
       question: parsedJson['question'],
       no_Of_Options: parsedJson['no_Of_Options'],

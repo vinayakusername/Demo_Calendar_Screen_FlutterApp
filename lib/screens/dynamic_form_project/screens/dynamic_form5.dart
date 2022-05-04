@@ -2,9 +2,12 @@ import 'package:demo_flutter_calender_application_1/custom_widgets/custom_form_t
 import 'package:demo_flutter_calender_application_1/db_services/read_json_data.dart';
 import 'package:demo_flutter_calender_application_1/screens/dynamic_form_project/List_of_objects/list_of_radio_button_objects.dart';
 import 'package:demo_flutter_calender_application_1/screens/dynamic_form_project/custom_widgets/custom_form_field.dart';
+import 'package:demo_flutter_calender_application_1/screens/dynamic_form_project/model/widget_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_file_picker/form_builder_file_picker.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:intl/intl.dart';
 
 class DynamicForm5Page extends StatefulWidget 
 {
@@ -17,8 +20,10 @@ class DynamicForm5Page extends StatefulWidget
 class _DynamicForm5PageState extends State<DynamicForm5Page> 
 {
 
+  Map<String,dynamic> formMapData =  new Map();
   final _formKey = GlobalKey<FormBuilderState>();
-  List<FormBuilderFieldOption<Object>> formBuilderFieldOptionList = [];
+  
+ 
 
   @override
   Widget build(BuildContext context) 
@@ -56,8 +61,6 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
                               itemCount: widgetList2.length,
                               itemBuilder:(context,index)
                               {
-                                //return Container();
-                                //print(widgetList2[index]['options']);
                                 return _buildWidgets
                                 (
                                   widgetList2[index]['id'],
@@ -69,6 +72,7 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
                                   index,
                                   context
                                 );
+                              
                               }
                             ),
                             SizedBox(height: 20,),
@@ -80,7 +84,10 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
                                 //print('Write code to submit form data');
                                 if(_formKey.currentState!.saveAndValidate())
                                 {
-                                  print(_formKey.currentState!.value);
+                                   formMapData = _formKey.currentState!.value;
+                                   print(formMapData);
+                                   print(formMapData['checkBox2_Answer']);
+                                  //print(_formKey.currentState!.value);
                                   _formKey.currentState!.reset();
                                 }
                               
@@ -101,6 +108,7 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
         ),
     );
   }
+  
   Widget _buildWidgets
   (
     id,
@@ -123,29 +131,26 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
     }
     else if(widgetType =='RadioButton')
     {
-      //  for(int i =0;i<options.length;i++)
-      //  {
-      //     formBuilderFieldOptionList.add(options[i]);
-      //  }
+    
       return _buildRadioButton(id,uniqueKey,question,options);
-      return Center(child: Text(' Return RadioButton Widget'));
+      //return Center(child: Text(' Return RadioButton Widget'));
     }
     else if( widgetType =='CheckBox')
     {
       return _buildMultiChoiceOptionsWidget(uniqueKey, question,options);
-      return Center(child: Text('Return CheckBox Widget'));
+      //return Center(child: Text('Return CheckBox Widget'));
       //print("Return CheckBox Widget");
     }
     else if(widgetType =='UploadFile')
     {
-      // return _buildFileUpload();
-       return Center(child: Text(' Return Upload Widget'));
+      return _buildFileUpload(context,uniqueKey);
+       //return Center(child: Text(' Return Upload Widget'));
       
     }
     else
     {
-      //return _buildDatePicker(context);
-       return Center(child: Text(' Return datePicker Widget'));
+       return _buildDatePicker(context,uniqueKey);
+       //return Center(child: Text(' Return datePicker Widget'));
     }
    
   }
@@ -240,7 +245,7 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
               [
                 for(int i=0;i<options.length;i++)
                 
-                    '${options[i]}'
+                    '${options[i]['option_value']}'
                 
               ].map((e) => FormBuilderFieldOption(value: e)).toList(growable:true),
               validator:FormBuilderValidators.required
@@ -282,7 +287,7 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
            options:
            [
              for(int i=0;i<options.length;i++)
-                '${options[i]}'
+                '${options[i]['option_value']}'
                 
            ].map((e) => FormBuilderFieldOption(value: e)).toList(growable:true),
               
@@ -292,5 +297,105 @@ class _DynamicForm5PageState extends State<DynamicForm5Page>
       ]
     );
 
- } 
+ }
+
+  Widget _buildFileUpload(context,uniqueKey)
+  {
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container
+      (
+        height: 150,
+        child: FormBuilderFilePicker
+        (
+        name:uniqueKey,
+        decoration: InputDecoration
+        (
+          labelText: "Attachments",
+          labelStyle: TextStyle
+          (
+            color:Colors.grey
+          ),
+          enabledBorder: OutlineInputBorder
+                    (
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide
+                      (
+                        //color:MyColors.primaryCardBorderColor
+                        color: Colors.grey
+                      )
+                    ),
+          focusedBorder: OutlineInputBorder
+                    (
+                      borderRadius: BorderRadius.circular(8.0),
+                      borderSide: BorderSide
+                      (
+                        //color: MyColors.primaryCardBorderColor
+                        color:Colors.grey
+                      )
+                    ),
+        ),
+        maxFiles: null,
+        previewImages: true,
+        onChanged: (val) => print(val),
+        selector: Row
+        (
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>
+          [
+            Icon(Icons.file_upload),
+            Text('Upload'),
+          ],
+        ),
+        onFileLoading: (val) 
+        {
+          print(val);
+        },
+  ),
+      ),
+    );
+  }
+
+
+
+ Widget  _buildDatePicker(context,uniqueKey)
+ {
+   return Column
+   (
+     crossAxisAlignment: CrossAxisAlignment.start,
+     children: 
+     [
+       Text
+       (
+         'DOB',
+          style: const TextStyle
+            (
+              fontSize: 16.0,
+              fontWeight: FontWeight.w800,
+              color: Colors.black
+            ),
+       ),
+       SizedBox(height:10),
+       FormBuilderDateTimePicker
+       (
+         name:uniqueKey,
+         firstDate: DateTime(1970),
+         inputType: InputType.date,
+         lastDate: DateTime(2030),
+         format: DateFormat('dd-MM-yyyy'),
+              //onChanged: _onChanged,
+         decoration:const InputDecoration
+              (
+                suffixIcon: Icon(Icons.calendar_today),
+                enabledBorder: OutlineInputBorder
+                (
+                  borderRadius: BorderRadius.all(Radius.circular(8.0))
+                )
+              ),
+         
+       ),
+        
+     ],
+   );
+ }
 }
